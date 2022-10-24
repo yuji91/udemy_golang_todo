@@ -49,3 +49,15 @@ func GetUser(id int) (user User, err error) {
   )
   return user, err
 }
+
+// 関数でなくメソッドにしている
+func (u *User) UpdateUser() (err error) {
+  cmd := `UPDATE users
+          SET name = ?, email = ?
+          WHERE id = ?`
+  _, err = Db.Exec(cmd, u.Name, u.Email, u.ID)
+  if err != nil {
+    log.Fatalln(err)
+  }
+  return err
+}
