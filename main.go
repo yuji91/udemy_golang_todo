@@ -5,6 +5,7 @@ import (
   // "./config" // import inner package
   //  "log"
   "./app/models"
+  "./app/controllers"
 )
 
 func main() {
@@ -19,15 +20,17 @@ func main() {
 
   fmt.Println(models.Db)
 
-  u := &models.User{}
-  u.Name = "test"
-  u.Email = "test@example.com"
-  u.PassWord = "testtest"
-  fmt.Println(u)
-
-  u.CreateUser()
+  controllers.StartMainServer()
 
   /*
+    u := &models.User{}
+    u.Name = "test"
+    u.Email = "test@example.com"
+    u.PassWord = "testtest"
+    fmt.Println(u)
+
+    u.CreateUser()
+
     u, _ := models.GetUser(1)
     fmt.Println(u)
 
@@ -72,8 +75,8 @@ func main() {
     t, _ := models.GetTodo(1)
     t.Content = "Update Todo"
     t.UpdateTodo()
-  */
 
-  t, _ := models.GetTodo(3)
-  t.DeleteTodo()
+    t, _ := models.GetTodo(3)
+    t.DeleteTodo()
+  */
 }
