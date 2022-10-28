@@ -12,6 +12,7 @@ type ConfigList struct {
   SQLDriver string
   DbName    string
   LogFile   string
+  Static    string
 }
 
 var Config ConfigList // global variable to access
@@ -31,5 +32,6 @@ func LoadConfig() {
     DbName:    cfg.Section("db").Key("name").String(),
     SQLDriver: cfg.Section("db").Key("driver").String(),
     LogFile:   cfg.Section("web").Key("logfile").String(),
+    Static:    cfg.Section("web").Key("static").String(),
   }
 }
